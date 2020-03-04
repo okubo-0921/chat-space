@@ -11,6 +11,7 @@
 - has_many :groups_users
 - has_many :messages
 - has_many :groups
+- has_many :messages_users
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -31,6 +32,7 @@
 - has_many :messages
 - has_many :groups_users
 - has_many :users
+- has_many :groups_messages
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -40,3 +42,21 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+## messages_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :message
+
+## groups_messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :message
+- belongs_to :group
