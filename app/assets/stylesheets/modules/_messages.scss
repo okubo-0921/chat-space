@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+
+//ファイル投稿フォームを非表示にする
+input{
+  display: none;
+}
+
+//ボタン表示の共通設定
+@mixin btn-style() {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border: 1px solid;
+}
+
+//白色アイコン用共通設定
+@mixin icon-white() {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+//左右マージン_20px
+@mixin margin-RL-20px() {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+//flexを用いて、子要素を余白をもって等間隔に配置
+@mixin flex-betweenspace() {
+  display: flex;
+  justify-content: space-between;
+}
+
+//色の変数定義
+$skyblue-color: #38aef0;
+$white-color: #ffffff;
+$gray-color: #999999;
+$black-color: #333333;
+
+
+//---レビュー画面---//
+.wrapper {
+  display: flex;
+//サイド側
+  .side-bar {
+    background-color: #253141;
+    height: 100vh;
+    width: 300px;
+    color: $white-color;
+    font: bold;
+    &__user-name {
+      height: 100px;
+      display: flex;
+//名前表示
+      .top-items {
+        @include margin-RL-20px();
+        @include flex-betweenspace();
+        background-color: $black-color;
+        width: 260px;
+        height: 20px;
+        align-self: center;
+        &__name {
+          line-height: 20px;
+          font-size: 16px;
+        }
+        &__icon {
+          width: 60px;
+          line-height: 20px;
+          display: block;
+          text-align: right;
+          &--edit {
+            @include icon-white();
+          }
+          &--cog {
+            @include icon-white();
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+//グループ表示
+    &__group-list {
+      background-color: #2f3e51;
+      height: calc(100vh - 100px);
+      &__number {
+        height: calc(20px + 15px + 5px + 11px + 40px);
+        &__text1 {
+          @include margin-RL-20px();
+          margin-bottom: 5px;
+          padding-top: 20px;
+          font-size: 15px;
+        }
+        &__text2 {
+          @include margin-RL-20px();
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+//メイン側
+  .chat-main {
+    background-color: $white-color;
+    height: 100vh;
+    width: calc(100vw - 300px);
+//ヘッダー表示
+    &__group{
+      @include flex-betweenspace();
+    }
+    &__group-info {
+      height: 100px;
+      &__text1 {
+        padding-top: 35px;
+        margin-left: 40px;
+        color: $black-color;
+        font-size: 20px;
+      }
+      &__text2 {
+        margin-top: 15px;
+        margin-left: 40px;
+        color: $gray-color;
+        font-size: 12px;
+      }
+      &__edit-btn {
+        @include btn-style();
+        color: $skyblue-color;
+        margin-right: 40px;
+        margin-top: 28px;
+      }
+    }
+//チャット表示
+    &__message-list {
+      background-color: #fafafa;
+      height: calc(100vh - 100px - 90px);
+      border: solid 1px;
+      border-color: #eeeeee;
+      padding-left: 40px;
+      &__text1 {
+        display: flex;
+        margin-top: 35px;
+        &__name {
+          color: $black-color;
+          font-size: 16px;
+          line-height: 16px;
+        }
+        &__date {
+          color: $gray-color;
+          margin-left: 10px;
+          font-size: 12px;
+        }
+      }
+      &__text2 {
+        color: #434A54;
+        margin-top: 12px;
+        margin-bottom: 46px;
+        font-size: 14px;
+      }
+    }
+//投稿フォーム表示
+    &__message-form{
+      background-color: #d2d2d2;
+      height: 90px;
+      position: relative;
+      &__textarea {
+        margin-left: 40px;
+        margin-right: calc(15px + 80px + 40px);
+        display: flex;
+        &__text {
+          display: block;
+          position: absolute;
+          top: 20px;
+          left: 40px;
+          width: 500px;
+          margin-left: 10px;
+          height: 50px;
+          line-height: 50px;
+        }
+        &__icon {
+          position: absolute;
+          left: 520px;
+          top: 20px;
+          line-height: 50px;
+          margin-right: 10px;
+        }
+      }
+      &__send-btn {
+        @include btn-style();
+        background-color: $skyblue-color;
+        position: absolute;
+        color: $white-color;
+        right: 40px;
+        top: 28px;
+      }
+    }
+  }
+}
