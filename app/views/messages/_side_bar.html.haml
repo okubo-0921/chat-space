@@ -1,12 +1,13 @@
 .side-bar
   .side-bar__user-name
     .top-items
-      .top-items__name masa
+      .top-items__name
+        = current_user.name
       .top-items__icon
         = link_to "#", class: "top-items__icon--edit" do
           = icon('far', 'edit')
           %spcn<>
-        = link_to "#", class: "top-items__icon--cog" do
+        = link_to edit_user_path(current_user), class: "top-items__icon--cog" do
           = icon('fas', 'cog')
           %spcn<>
   .side-bar__group-list

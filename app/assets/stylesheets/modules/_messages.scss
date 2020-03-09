@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-//ファイル投稿フォームを非表示にする
-input{
-  display: none;
-}
-
 //---レビュー画面---//
 .wrapper {
   display: flex;
@@ -150,6 +145,10 @@ input{
           top: 20px;
           line-height: 50px;
           margin-right: 10px;
+          
+          input {//ファイル投稿フォームを非表示にする
+            display: none;
+          }
         }
       }
       &__send-btn {
