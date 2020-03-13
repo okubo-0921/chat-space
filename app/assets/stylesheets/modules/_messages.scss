@@ -93,6 +93,11 @@
       }
     }
 //チャット表示
+    &__message {
+      display: block;
+      margin-top: 35px;
+      margin-bottom: 46px;
+    }
     &__message-list {
       background-color: #fafafa;
       height: calc(100vh - 100px - 90px);
@@ -102,7 +107,6 @@
       overflow: scroll;
       &__text1 {
         display: flex;
-        margin-top: 35px;
         &__name {
           color: $black-color;
           font-size: 16px;
@@ -117,7 +121,6 @@
       &__text2 {
         color: #434A54;
         margin-top: 12px;
-        margin-bottom: 46px;
         font-size: 14px;
       }
     }
