@@ -93,6 +93,11 @@
       }
     }
 //チャット表示
+    &__message {
+      display: block;
+      margin-top: 35px;
+      margin-bottom: 46px;
+    }
     &__message-list {
       background-color: #fafafa;
       height: calc(100vh - 100px - 90px);
@@ -102,7 +107,6 @@
       overflow: scroll;
       &__text1 {
         display: flex;
-        margin-top: 35px;
         &__name {
           color: $black-color;
           font-size: 16px;
@@ -117,7 +121,6 @@
       &__text2 {
         color: #434A54;
         margin-top: 12px;
-        margin-bottom: 46px;
         font-size: 14px;
       }
     }
@@ -126,30 +129,25 @@
       background-color: #d2d2d2;
       height: 90px;
       position: relative;
-      &__textarea {
-        margin-left: 40px;
-        margin-right: calc(15px + 80px + 40px);
-        display: flex;
-        &__text {
-          display: block;
-          position: absolute;
-          top: 20px;
-          left: 40px;
-          width: 500px;
-          margin-left: 10px;
-          height: 50px;
-          line-height: 50px;
-        }
-        &__icon {
-          position: absolute;
-          left: 520px;
-          top: 20px;
-          line-height: 50px;
-          margin-right: 10px;
-          
-          input {//ファイル投稿フォームを非表示にする
-            display: none;
-          }
+      &__text {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        width: 500px;
+        margin-left: 10px;
+        height: 50px;
+        line-height: 50px;
+      }
+      &__icon {
+        position: absolute;
+        left: 520px;
+        top: 20px;
+        line-height: 50px;
+        margin-right: 10px;
+        
+        input {//ファイル投稿フォームを非表示にする
+          display: none;
         }
       }
       &__send-btn {
