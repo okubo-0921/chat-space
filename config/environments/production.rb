@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  server '3.113.42.230', user: 'ec2-user', roles: %w{app db web}
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
