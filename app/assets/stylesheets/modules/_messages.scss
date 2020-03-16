@@ -48,6 +48,9 @@
       height: calc(100vh - 100px);
       &__number {
         height: calc(20px + 15px + 5px + 11px + 40px);
+        a {
+          text-decoration: none;
+        }
         &__text1 {
           @include margin-RL-20px();
           margin-bottom: 5px;
@@ -129,23 +132,29 @@
       background-color: #d2d2d2;
       height: 90px;
       position: relative;
+      .input-text {
+        display: inline-block;
+        width: 100%;
+        height: 90px;
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: calc(40px + 82px + 15px);
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: flex-end;
+      }
       &__text {
         display: block;
-        position: absolute;
-        top: 20px;
-        left: 40px;
-        width: 500px;
-        margin-left: 10px;
-        height: 50px;
+        width: 100%;
         line-height: 50px;
       }
       &__icon {
         position: absolute;
-        left: 520px;
-        top: 20px;
-        line-height: 50px;
-        margin-right: 10px;
-        
+        i {
+          display: block;
+          margin-right: 10px;
+          line-height: 50px;
+        }
         input {//ファイル投稿フォームを非表示にする
           display: none;
         }
