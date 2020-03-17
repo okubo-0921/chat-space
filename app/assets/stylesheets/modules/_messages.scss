@@ -91,6 +91,9 @@
       &__edit-btn {
         @include btn-style();
         color: $skyblue-color;
+        border: 1px solid;
+        line-height: 40px;
+        height: 40px;
         margin-right: 40px;
         margin-top: 28px;
       }
@@ -154,6 +157,7 @@
           display: block;
           margin-right: 10px;
           line-height: 50px;
+          font-size: 20px;
         }
         input {//ファイル投稿フォームを非表示にする
           display: none;
@@ -164,8 +168,8 @@
         background-color: $skyblue-color;
         position: absolute;
         color: $white-color;
+        line-height: 50px;
         right: 40px;
-        top: 28px;
       }
     }
   }
