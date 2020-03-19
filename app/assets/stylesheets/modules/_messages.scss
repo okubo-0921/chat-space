@@ -46,6 +46,7 @@
     &__group-list {
       background-color: #2f3e51;
       height: calc(100vh - 100px);
+      overflow: scroll;
       &__number {
         height: calc(20px + 15px + 5px + 11px + 40px);
         a {
