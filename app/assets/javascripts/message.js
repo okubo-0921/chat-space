@@ -1,8 +1,15 @@
 $(function(){
 
-  let buildHTML = function(message) {
+  //side_barのみリロードさせるメソッド
+  function reloadSide() {
+    $.get(document.URL).done(function(data, textStatus, jqXHR) {
+      const doc = new DOMParser().parseFromString(data, 'text/html');
+      $('.side-bar__group-list').html(doc.querySelector('.side-bar__group-list').innerHTML);
+    });
+  }
 
-    var image = (message.image) ? `<img class= "chat-main__message-list__image" src=${message.image} >` : "";
+  let buildHTML = function(message) {
+    let image = (message.image) ? `<img class= "chat-main__message-list__image" src=${message.image} >` : "";
 
     if (image == "") {    
       let html = `<div class="chat-main__message" data-message-id="${message.id}"> 
@@ -51,15 +58,14 @@ $(function(){
       processData: false,
       contentType: false
     })
-    
     .done(function(data) {
+      reloadSide(); //side_barリロード用
       let html = buildHTML(data);
       $('.chat-main__message-list').append(html);
       $('form')[0].reset();
       $('input').prop('disabled', false);
       $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight}, 'fast');
     })
-
     .fail(function() {
       alert('メッセージ送信に失敗しました');
       $('input').prop('disabled', false);
